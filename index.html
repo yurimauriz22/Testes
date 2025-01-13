@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Detection</title>
+  <style>
+    body {
+      height: 200vh; /* Altura maior para testar o scroll */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Role para baixo e depois para cima</h1>
+    <p>Ao rolar para cima, você será redirecionado para outra página.</p>
+  </div>
+
+  <script>
+    let lastScrollPosition = window.scrollY; // Posição inicial do scroll
+
+    window.addEventListener('scroll', () => {
+      const currentScrollPosition = window.scrollY;
+
+      // Detecta se está rolando para cima
+      if (currentScrollPosition < lastScrollPosition) {
+        // Redireciona para outra página ao rolar para cima
+        window.location.href = "outra-pagina.html"; // Substitua pelo caminho da página desejada
+      }
+
+      lastScrollPosition = currentScrollPosition; // Atualiza a posição do scroll
+    });
+  </script>
+</body>
+</html>
